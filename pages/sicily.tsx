@@ -1,57 +1,48 @@
-import Head from "next/head";
-import { Container } from "@/components/Container";
-import { Layout } from "@/components/Layout";
-import { Hero } from "@/components/Hero";
-import { CinemaHero } from "@/components/CinemaHero";
-import { Cards } from "@/components/Cards";
+import Head from 'next/head';
+import { Container } from '@/components/Container';
+import { Layout } from '@/components/Layout';
+import { Hero } from '@/components/Hero';
+import { CinemaHero } from '@/components/CinemaHero';
+import { Cards } from '@/components/Cards';
 
 export default function Home() {
     return (
         <>
             <Head>
                 <title>sicily</title>
-                <meta
-                    name="description"
-                    content="Framer Motion animations showcase by Berry"
-                />
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                />
+                <meta name="description" content="Framer Motion animations showcase by Berry" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Layout>
-                <CinemaHero
-                    imgsrc="/images/sicily/5.jpg"
-                    title="Destination sicily"
-                />
+                <CinemaHero imgsrc="/images/sicily/5.jpg" title="Destination sicily" imagePriority={true} />
                 <Cards
                     title="Enjoy a slice of paradise"
                     type="type2"
                     cards={[
                         {
-                            title: "Beautiful sunsets",
-                            image: "/images/sicily/1.jpg",
-                            ctaUrl: "#",
-                            ctaText: "Read More",
+                            title: 'Beautiful sunsets',
+                            image: '/images/sicily/1.jpg',
+                            ctaUrl: '#',
+                            ctaText: 'Read More',
                         },
                         {
-                            title: "Delicious seafood",
-                            image: "/images/misc/food3.jpg",
-                            ctaUrl: "#",
-                            ctaText: "Read More",
+                            title: 'Delicious seafood',
+                            image: '/images/misc/food3.jpg',
+                            ctaUrl: '#',
+                            ctaText: 'Read More',
                         },
                         {
-                            title: "Stunning views",
-                            image: "/images/sicily/3.jpg",
-                            ctaUrl: "#",
-                            ctaText: "Read More",
+                            title: 'Stunning views',
+                            image: '/images/sicily/3.jpg',
+                            ctaUrl: '#',
+                            ctaText: 'Read More',
                         },
                         {
-                            title: "Gorgeous beaches",
-                            image: "/images/sicily/2.jpg",
-                            ctaUrl: "#",
-                            ctaText: "Read More",
+                            title: 'Gorgeous beaches',
+                            image: '/images/sicily/2.jpg',
+                            ctaUrl: '#',
+                            ctaText: 'Read More',
                         },
                     ]}
                 />
@@ -66,22 +57,10 @@ export default function Home() {
                     btnVariant="verb"
                     variant="right"
                 />
-                <Hero
-                    imgsrc="/images/sicily/1.jpg"
-                    title="Destination sicily"
-                    variant="left"
-                />
+                <Hero imgsrc="/images/sicily/1.jpg" title="Destination sicily" variant="left" />
 
-                <Hero
-                    imgsrc="/images/sicily/3.jpg"
-                    title="Destination sicily"
-                    ctaText="Find out more"
-                    ctaUrl="#"
-                />
-                <Hero
-                    imgsrc="/images/sicily/4.jpg"
-                    title="Destination sicily"
-                />
+                <Hero imgsrc="/images/sicily/3.jpg" title="Destination sicily" ctaText="Find out more" ctaUrl="#" />
+                <Hero imgsrc="/images/sicily/4.jpg" title="Destination sicily" />
             </Layout>
         </>
     );

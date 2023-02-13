@@ -9,7 +9,6 @@ import { BgText } from './BgText';
 import { TBgTextVariants } from './BgText';
 import { TButtonVariant } from './Button';
 import { useState } from 'react';
-import { easings } from '@/utils/easings';
 
 const motionImageVariants: { [key: string]: Variant } = {
     base: {
@@ -20,7 +19,6 @@ const motionImageVariants: { [key: string]: Variant } = {
         transition: {
             type: 'tween',
             duration: 15,
-            // ease: easings.easeInOutQuart,
             ease: 'easeInOut',
             repeat: Infinity,
             repeatType: 'reverse',
@@ -53,6 +51,7 @@ export const CinemaHero = ({
     titleVariant = 'white',
     textVariant = 'white',
     btnVariant = 'black',
+    imagePriority = false,
 }: {
     imgsrc: string;
     title: string;
@@ -63,6 +62,7 @@ export const CinemaHero = ({
     titleVariant?: TBgTitleVariants;
     textVariant?: TBgTextVariants;
     btnVariant?: TButtonVariant;
+    imagePriority?: boolean;
 }) => {
     const [isInViewport, setIsInViewport] = useState(false);
 
@@ -77,7 +77,7 @@ export const CinemaHero = ({
                     className="h-full w-full"
                     variants={motionImageVariants}
                     animate={isInViewport ? 'animate' : 'base'}>
-                    <Image fill src={imgsrc} alt={''} className="object-cover" priority />
+                    <Image fill src={imgsrc} alt={''} className="object-cover" priority={imagePriority} />
 
                     <div className="absolute inset-0 z-20" />
                 </motion.div>
