@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
-    image: {
+    images: {
         deviceSizes: [375, 640, 768, 1024, 1280, 1440, 1920],
         imageSizes: [64, 128, 192],
     },
