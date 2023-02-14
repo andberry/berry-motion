@@ -1,11 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
-import { Button } from "./Button";
-import { motion, Variant } from "framer-motion";
-import { easings } from "@/utils/easings";
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import { Button } from './Button';
+import { motion, Variant } from 'framer-motion';
+import { easings } from '@/utils/easings';
 
-export type TCardAnimationType = "type1" | "type2";
+export type TCardAnimationType = 'type1' | 'type2';
 
 export interface ICard {
     image: string;
@@ -25,7 +25,7 @@ const motionVariantsImage: { [key: string]: Variant } = {
         scale: 1.1,
         y: -10,
         transition: {
-            type: "tween",
+            type: 'tween',
             ease: easings.easeOutQuint,
             duration: 0.6,
         },
@@ -34,7 +34,7 @@ const motionVariantsImage: { [key: string]: Variant } = {
         scale: 1.15,
         y: -25,
         transition: {
-            type: "tween",
+            type: 'tween',
             ease: easings.easeOutQuint,
             duration: 0.6,
         },
@@ -63,7 +63,7 @@ const motionVariantsTitle2: { [key: string]: Variant } = {
         opacity: 1,
         y: -30,
         transition: {
-            type: "tween",
+            type: 'tween',
             duration: 0.6,
             ease: easings.easeOutExpo,
             delay: 0.1,
@@ -71,23 +71,21 @@ const motionVariantsTitle2: { [key: string]: Variant } = {
     },
 };
 
-export function Card({ image, title, ctaText, ctaUrl, type = "type1" }: ICard) {
+export function Card({ image, title, ctaText, ctaUrl, type = 'type1' }: ICard) {
     const [isHover, setIsHover] = useState(false);
     return (
         <motion.div
             onHoverStart={() => setIsHover(true)}
             onHoverEnd={() => setIsHover(false)}
             variants={motionVariantsCard}
-            animate={isHover ? "hover" : "base"}
-        >
+            animate={isHover ? 'hover' : 'base'}>
             <Link href={ctaUrl} className="block relative p-4 group">
                 <div className="relative pb-3 z-20">
                     <div className="aspect-10/16 rounded-md overflow-hidden relative z-30">
                         <motion.div
                             className="relative w-full h-full"
                             variants={motionVariantsImage}
-                            animate={isHover ? "hover" : "base"}
-                        >
+                            animate={isHover ? 'hover' : 'base'}>
                             <Image
                                 fill
                                 src={image}
@@ -101,35 +99,29 @@ export function Card({ image, title, ctaText, ctaUrl, type = "type1" }: ICard) {
                     </div>
 
                     <motion.h3
-                        animate={type === "type1" && isHover ? "hover" : "base"}
+                        animate={type === 'type1' && isHover ? 'hover' : 'base'}
                         variants={motionVariantsTitle1}
-                        className="text-xl text-center mt-2 text-black"
-                    >
+                        className="text-2xl text-center mt-2 text-black font-montserrat">
                         {title}
                     </motion.h3>
-                    {type === "type1" && (
+                    {type === 'type1' && (
                         <motion.h3
-                            animate={isHover ? "hover" : "base"}
+                            animate={isHover ? 'hover' : 'base'}
                             variants={motionVariantsTitle2}
-                            className="text-xl text-center mt-2 text-white"
-                        >
+                            className="text-2xl text-center mt-2 text-white font-montserrat">
                             {title}
                         </motion.h3>
                     )}
                 </div>
 
-                {isHover && type === "type1" && (
-                    <motion.div
-                        layoutId="hoverbox"
-                        className="absolute inset-0 bg-black z-10 rounded-md"
-                    ></motion.div>
+                {isHover && type === 'type1' && (
+                    <motion.div layoutId="hoverbox" className="absolute inset-0 bg-black z-10 rounded-md"></motion.div>
                 )}
 
-                {isHover && type === "type2" && (
+                {isHover && type === 'type2' && (
                     <motion.div
                         layoutId="hoverbox"
-                        className="absolute left-0 right-0 bottom-0 h-3 bg-verb z-10 rounded-md"
-                    ></motion.div>
+                        className="absolute left-0 right-0 bottom-0 h-3 bg-verb z-10 rounded-md"></motion.div>
                 )}
             </Link>
         </motion.div>

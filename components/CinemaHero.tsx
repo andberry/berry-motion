@@ -16,7 +16,7 @@ const motionImageVariants: { [key: string]: Variant } = {
         scale: 1,
     },
     animate: {
-        scale: 1.3,
+        scale: 1.2,
         transition: {
             type: 'tween',
             duration: 15,
@@ -52,7 +52,7 @@ export const CinemaHero = ({
     titleVariant = 'white',
     textVariant = 'white',
     btnVariant = 'black',
-    imagePriority = false,
+    imagePriority = true,
 }: {
     imgsrc: StaticImageData;
     title: string;
