@@ -30,15 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
     return (
         <div className={`${fontExo2.variable} ${fontPlayfair.variable} ${fontAbril.variable} c-app`}>
-            {
-                <SplashScreen
-                    className={classNames(
-                        'transition-all duration-500 ease-linear delay-200',
-                        { 'opacity-100': !pageIsLoaded },
-                        { 'opacity-0 pointer-events-none': pageIsLoaded }
-                    )}
-                />
-            }
+            <SplashScreen pageIsLoaded={pageIsLoaded} />
             <Component {...pageProps} />
         </div>
     );
