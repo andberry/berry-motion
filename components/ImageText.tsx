@@ -151,12 +151,12 @@ export const ImageText = ({ imgsrc, title = undefined, text = undefined, imgposi
                             'lg:order-1 text-right lg:sticky lg:top-24 lg:col-start-2': imgposition === 'right',
                         })}>
                         {title && (
-                            <motion.h2 variants={motionVariantsText} className="text-4xl font-bold">
+                            <motion.h2 variants={motionVariantsText} className="text-4xl font-bold font-playfair">
                                 {title}
                             </motion.h2>
                         )}
                         {text && (
-                            <motion.div variants={motionVariantsText} className="mt-4 text-lg font-exo2">
+                            <motion.div variants={motionVariantsText} className="mt-4 text-lg">
                                 {text}
                             </motion.div>
                         )}

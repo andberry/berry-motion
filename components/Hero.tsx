@@ -13,7 +13,7 @@ import { easings } from '@/utils/easings';
 import { StaticImageData } from 'next/image';
 
 const useBgScaleParallax = (value: MotionValue<number>) => useTransform(value, [0, 0.75, 1], [1, 1.1, 1.15]);
-const useBgOverlayOpacityParallax = (value: MotionValue<number>) => useTransform(value, [0, 0.5, 1], [0, 0.4, 0.8]);
+const useBgOverlayOpacityParallax = (value: MotionValue<number>) => useTransform(value, [0, 0.5, 1], [0, 0.6, 0.8]);
 const useBgBlurParallax = (value: MotionValue<number>) =>
     useTransform(value, (value) => {
         return value > 0.4 ? `blur(${value * 4}px)` : `blur(${value * 1.5}px)`;
@@ -62,7 +62,7 @@ export const Hero = ({
     });
     const bgScaleParallax = useBgScaleParallax(scrollYProgress);
     const bgOverlayOpacityParallax = useBgOverlayOpacityParallax(scrollYProgress);
-    const bgBlurParallax = useBgBlurParallax(scrollYProgress);
+    //const bgBlurParallax = useBgBlurParallax(scrollYProgress);
 
     const [isInViewportAnimating, setIsInViewportAnimating] = useState(false);
 
@@ -71,9 +71,9 @@ export const Hero = ({
             className={classNames('c-herobanner__slide relative', 'flex flex-col justify-end', 'aspect-video pb-16')}
             onViewportEnter={() => setIsInViewportAnimating(true)}
             onViewportLeave={() => setIsInViewportAnimating(false)}
-            viewport={{ amount: 0.5, margin: '0px 0px -200px 0px' }}>
+            viewport={{ amount: 0.5, margin: '0px 0px -100px 0px' }}>
             <div ref={bgRef} className={'absolute inset-0 z-10 overflow-hidden'}>
-                <motion.div style={{ scale: bgScaleParallax, filter: bgBlurParallax }} className="h-full w-full">
+                <motion.div style={{ scale: bgScaleParallax }} className="h-full w-full">
                     <Image fill src={imgsrc} alt={''} className="object-cover" sizes="100vw" placeholder="blur" />
 
                     <div className="absolute inset-0 z-20" />

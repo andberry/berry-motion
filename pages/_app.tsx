@@ -1,6 +1,6 @@
 import '@/styles/global.css';
 import type { AppProps } from 'next/app';
-import { Exo_2, Playfair_Display, Abril_Fatface } from '@next/font/google';
+import { Exo_2, Playfair_Display, Abril_Fatface, Montserrat, Oswald } from '@next/font/google';
 import { SplashScreen } from '@/components/SplashScreen';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
@@ -15,10 +15,16 @@ const fontPlayfair = Playfair_Display({
     subsets: ['latin'],
     variable: '--font-playfair',
 });
-const fontAbril = Abril_Fatface({
-    weight: '400',
+const fontMontserrat = Montserrat({
+    weight: ['200', '300', '700'],
     subsets: ['latin'],
-    variable: '--font-abril',
+    variable: '--font-montserrat',
+});
+
+const fontOswals = Oswald({
+    weight: ['300', '400'],
+    subsets: ['latin'],
+    variable: '--font-oswald',
 });
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -29,7 +35,8 @@ export default function App({ Component, pageProps }: AppProps) {
     }, []);
 
     return (
-        <div className={`${fontExo2.variable} ${fontPlayfair.variable} ${fontAbril.variable} c-app`}>
+        <div
+            className={`${fontExo2.variable} ${fontPlayfair.variable} ${fontMontserrat.variable} ${fontOswals.variable} c-app`}>
             <SplashScreen pageIsLoaded={pageIsLoaded} />
             <Component {...pageProps} />
         </div>
