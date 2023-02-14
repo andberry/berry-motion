@@ -18,7 +18,7 @@ const motionVariants = {
         },
     },
     exit: {
-        opacity: 0.25,
+        opacity: 0,
         transition: {
             type: 'tween',
             ease: easings.easeInOutCubic,
