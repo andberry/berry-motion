@@ -7,6 +7,11 @@ import { CinemaHero } from '@/components/CinemaHero';
 import { Gallery } from '@/components/Gallery';
 import { Gallery2 } from '@/components/Gallery2';
 import { ImageText } from '@/components/ImageText';
+import Image1 from '../public/images/trentino/6.jpg';
+import Image2 from '../public/images/trentino/5.jpg';
+import Image3 from '../public/images/trentino/1.jpg';
+import Image4 from '../public/images/trentino/2.jpg';
+import Image5 from '../public/images/trentino/7.jpg';
 
 export default function Home() {
     return (
@@ -18,7 +23,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Layout>
-                <CinemaHero imgsrc="/images/trentino/6.jpg" title="Destination Trentino" imagePriority={true} />
+                <CinemaHero imgsrc={Image1} title="Destination Trentino" imagePriority={true} />
                 <Cards
                     title="Follow your passions"
                     cards={[
@@ -48,7 +53,7 @@ export default function Home() {
                         },
                     ]}
                 />
-                <Hero imgsrc="/images/trentino/5.jpg" title="Destination Trentino" variant="right" />
+                <Hero imgsrc={Image2} title="Destination Trentino" variant="right" />
                 <ImageText
                     imgsrc="/images/misc/food1.jpg"
                     title="Can I treat you..."
@@ -64,13 +69,13 @@ export default function Home() {
                     title="A few pics"
                     images={['/images/trentino/1.jpg', '/images/trentino/4.jpg', '/images/trentino/3.jpg']}
                 />
-                <Hero imgsrc="/images/trentino/1.jpg" title="Destination Trentino" variant="left" />
+                <Hero imgsrc={Image3} title="Destination Trentino" variant="left" />
                 <Gallery
                     title="A few pics"
                     images={['/images/trentino/7.jpg', '/images/trentino/2.jpg', '/images/trentino/5.jpg']}
                     hoverType="bw"
                 />
-                <Hero imgsrc="/images/trentino/2.jpg" title="Destination Trentino" variant="right" />
+                <Hero imgsrc={Image4} title="Destination Trentino" variant="right" />
                 <Gallery2
                     title="A few pics - Gallery 2"
                     images={[
@@ -81,7 +86,7 @@ export default function Home() {
                     ]}
                 />
                 <Hero
-                    imgsrc="/images/trentino/7.jpg"
+                    imgsrc={Image5}
                     title="Destination Trentino"
                     variant="right"
                     ctaText="Discover Trentino"

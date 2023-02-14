@@ -9,6 +9,7 @@ import { BgText } from './BgText';
 import { TBgTextVariants } from './BgText';
 import { TButtonVariant } from './Button';
 import { useState } from 'react';
+import { StaticImageData } from 'next/image';
 
 const motionImageVariants: { [key: string]: Variant } = {
     base: {
@@ -53,7 +54,7 @@ export const CinemaHero = ({
     btnVariant = 'black',
     imagePriority = false,
 }: {
-    imgsrc: string;
+    imgsrc: StaticImageData;
     title: string;
     text?: string;
     ctaUrl?: string;
@@ -77,7 +78,14 @@ export const CinemaHero = ({
                     className="h-full w-full"
                     variants={motionImageVariants}
                     animate={isInViewport ? 'animate' : 'base'}>
-                    <Image fill src={imgsrc} alt={''} className="object-cover" priority={imagePriority} />
+                    <Image
+                        fill
+                        src={imgsrc}
+                        alt={''}
+                        className="object-cover"
+                        priority={imagePriority}
+                        placeholder="blur"
+                    />
 
                     <div className="absolute inset-0 z-20" />
                 </motion.div>

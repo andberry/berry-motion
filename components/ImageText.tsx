@@ -133,7 +133,14 @@ export const ImageText = ({ imgsrc, title = undefined, text = undefined, imgposi
                                 variants={motionVariantsImage}
                                 animate={isInViewportAnimating ? 'show' : 'hide'}
                                 className="h-full w-full relative">
-                                <Image ref={imgRef} className="object-cover z-10" fill src={imgsrc} alt="" />
+                                <Image
+                                    ref={imgRef}
+                                    className="object-cover z-10"
+                                    fill
+                                    src={imgsrc}
+                                    alt=""
+                                    sizes="(max-width: 767px) 100vw, 50vw"
+                                />
                             </motion.div>
                         </div>
                     </div>
