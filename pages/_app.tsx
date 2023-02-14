@@ -4,6 +4,7 @@ import { Exo_2, Playfair_Display, Abril_Fatface, Montserrat, Oswald } from '@nex
 import { SplashScreen } from '@/components/SplashScreen';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
+import { AnimatePresence } from 'framer-motion';
 
 const fontExo2 = Exo_2({
     weight: ['100', '200', '300', '800'],
@@ -27,7 +28,7 @@ const fontOswals = Oswald({
     variable: '--font-oswald',
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, router }: AppProps) {
     const [pageIsLoaded, setPageIsLoaded] = useState(false);
 
     useEffect(() => {
@@ -38,7 +39,15 @@ export default function App({ Component, pageProps }: AppProps) {
         <div
             className={`${fontExo2.variable} ${fontPlayfair.variable} ${fontMontserrat.variable} ${fontOswals.variable} c-app`}>
             <SplashScreen pageIsLoaded={pageIsLoaded} />
-            <Component {...pageProps} />
+            <AnimatePresence
+                mode="wait"
+                onExitComplete={() => {
+                    window.setTimeout(() => {
+                        window.scrollTo(0, 0);
+                    }, 100);
+                }}>
+                <Component {...pageProps} key={router.asPath} />
+            </AnimatePresence>
         </div>
     );
 }
