@@ -20,6 +20,7 @@ export const SplashScreen = ({ className, pageIsLoaded }: ISplashScreen) => {
             )}>
             <div className="w-full max-w-screen-lg">
                 <Image
+                    priority
                     src={BerryLand}
                     alt=""
                     className={classNames(
