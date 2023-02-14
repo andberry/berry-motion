@@ -52,7 +52,7 @@ export const CinemaHero = ({
     titleVariant = 'white',
     textVariant = 'white',
     btnVariant = 'black',
-    imagePriority = false,
+    imagePriority = true,
 }: {
     imgsrc: StaticImageData;
     title: string;

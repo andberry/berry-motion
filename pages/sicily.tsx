@@ -20,7 +20,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Layout>
-                <CinemaHero imgsrc={Image1} title="Destination sicily" imagePriority={true} />
+                <CinemaHero imgsrc={Image1} title="Destination sicily" />
                 <Cards
                     title="Enjoy a slice of paradise"
                     type="type2"

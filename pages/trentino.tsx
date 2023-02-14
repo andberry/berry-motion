@@ -23,7 +23,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Layout>
-                <CinemaHero imgsrc={Image1} title="Destination Trentino" imagePriority={true} />
+                <CinemaHero imgsrc={Image1} title="Destination Trentino" />
                 <Cards
                     title="Follow your passions"
                     cards={[
