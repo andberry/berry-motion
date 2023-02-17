@@ -4,7 +4,7 @@ import { easings } from '../utils/easings';
 
 const motionVariants = {
     from: {
-        x: 60,
+        x: 30,
         opacity: 0,
     },
     to: {
@@ -18,6 +18,7 @@ const motionVariants = {
         },
     },
     exit: {
+        x: -30,
         opacity: 0,
         transition: {
             type: 'tween',
