@@ -11,6 +11,7 @@ import { TBgTextVariants } from './BgText';
 import { TButtonVariant } from './Button';
 import { easings } from '@/utils/easings';
 import { StaticImageData } from 'next/image';
+import { Modal } from './Modal';
 
 const useBgScaleParallax = (value: MotionValue<number>) => useTransform(value, [0, 0.75, 1], [1, 1.1, 1.15]);
 const useBgOverlayOpacityParallax = (value: MotionValue<number>) => useTransform(value, [0, 0.5, 1], [0, 0.6, 0.8]);
@@ -118,6 +119,18 @@ export const Hero = ({
                     </div>
                 </Container>
             </div>
+            <Modal title="Hero">
+                <ul className="c-content-list">
+                    <li>
+                        <strong>Scroll-triggered animation</strong>: reveals copy and CTA once the component is in
+                        viewport
+                    </li>
+                    <li>
+                        <strong>Scroll-linked animation</strong>: fade out the component as user scrolls up making image
+                        bigger and the overlay darker
+                    </li>
+                </ul>
+            </Modal>
         </motion.section>
     );
 };

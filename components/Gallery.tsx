@@ -1,14 +1,15 @@
-import Image from "next/image";
-import { Container } from "./Container";
-import { AnimatePresence, motion, Variant } from "framer-motion";
-import { easings } from "@/utils/easings";
-import { useState } from "react";
-import classNames from "classnames";
+import Image from 'next/image';
+import { Container } from './Container';
+import { AnimatePresence, motion, Variant } from 'framer-motion';
+import { easings } from '@/utils/easings';
+import { useState } from 'react';
+import classNames from 'classnames';
+import { Modal } from './Modal';
 
 interface IGallery {
     title: string;
     images: string[];
-    hoverType?: "blur" | "bw";
+    hoverType?: 'blur' | 'bw';
 }
 
 const sectionVariants: { [key: string]: Variant } = {
@@ -25,7 +26,7 @@ const imageVariants = {
         scale: 1.2,
         x: -20,
         transition: {
-            type: "tween",
+            type: 'tween',
             ease: easings.easeOutQuart,
             duration: 0.9,
         },
@@ -34,7 +35,7 @@ const imageVariants = {
         scale: 1.1,
         x: 0,
         transition: {
-            type: "tween",
+            type: 'tween',
             ease: easings.easeOutQuart,
             duration: 0.9,
         },
@@ -45,71 +46,62 @@ const imageMaskVariants = {
     hide: {
         x: 0,
         transition: {
-            type: "tween",
+            type: 'tween',
             ease: easings.easeOutQuint,
             duration: 0.6,
         },
     },
     show: {
-        x: "100%",
+        x: '100%',
         transition: {
-            type: "tween",
+            type: 'tween',
             ease: easings.easeOutQuint,
             duration: 0.6,
         },
     },
 };
 
-export function Gallery({ title, images, hoverType = "blur" }: IGallery) {
+export function Gallery({ title, images, hoverType = 'blur' }: IGallery) {
     const [isInViewportAnimating, setIsInViewportAnimating] = useState(false);
     // const [currentImageId, setCurrentImageId] = useState<number | null>(null);
     const [itemIdIsHover, setItemIdIsOver] = useState<number | null>(null);
     return (
         <motion.section
-            className="py-40"
+            className="py-40 relative"
             variants={sectionVariants}
             onViewportEnter={() => setIsInViewportAnimating(true)}
             onViewportLeave={() => setIsInViewportAnimating(false)}
-            viewport={{ amount: 0.3, margin: "0px 0px -100px 0px" }}
-            animate={isInViewportAnimating ? "show" : "hide"}
-        >
+            viewport={{ amount: 0.3, margin: '0px 0px -100px 0px' }}
+            animate={isInViewportAnimating ? 'show' : 'hide'}>
             <Container>
-                <h2 className={`font-playfair uppercase text-right text-5xl`}>
-                    {title}
-                </h2>
+                <h2 className={`font-playfair uppercase text-right text-5xl`}>{title}</h2>
                 <div className="mt-8 md:grid md:grid-cols-3 lg:grid-cols-6 gap-8">
                     {images.map((item, index) => {
                         return (
                             <div
                                 key={index}
-                                className={`col-span-2 aspect-square relative overflow-hidden mb-6 md:mb-0`}
-                            >
+                                className={`col-span-2 aspect-square relative overflow-hidden mb-6 md:mb-0`}>
                                 {/* image mask */}
                                 <motion.div
                                     className="absolute inset-0 bg-white z-20"
-                                    variants={imageMaskVariants}
-                                ></motion.div>
+                                    variants={imageMaskVariants}></motion.div>
 
                                 {/* image wrapper to handle hover */}
                                 <motion.div
                                     className="w-full h-full relative z-10"
                                     variants={imageVariants}
                                     onHoverStart={() => setItemIdIsOver(index)}
-                                    onHoverEnd={() => setItemIdIsOver(null)}
-                                >
+                                    onHoverEnd={() => setItemIdIsOver(null)}>
                                     {/* overlay for hover animation */}
                                     <div
                                         className={classNames(
-                                            "absolute inset-0 bg-black z-10 pointer-events-none",
-                                            "transition-all duration-150 ease-linear",
+                                            'absolute inset-0 bg-black z-10 pointer-events-none',
+                                            'transition-all duration-150 ease-linear',
                                             {
-                                                "opacity-20":
-                                                    itemIdIsHover !== index,
+                                                'opacity-20': itemIdIsHover !== index,
                                             },
                                             {
-                                                "opacity-0":
-                                                    itemIdIsHover === null ||
-                                                    itemIdIsHover === index,
+                                                'opacity-0': itemIdIsHover === null || itemIdIsHover === index,
                                             }
                                         )}
                                     />
@@ -122,17 +114,15 @@ export function Gallery({ title, images, hoverType = "blur" }: IGallery) {
                                                     (max-width: 1023px) 50vw,
                                                     30vw"
                                         className={classNames(
-                                            "object-cover object-center transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-2",
+                                            'object-cover object-center transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-2',
                                             {
-                                                "blur-[2px]":
-                                                    hoverType === "blur" &&
+                                                'blur-[2px]':
+                                                    hoverType === 'blur' &&
                                                     itemIdIsHover !== null &&
                                                     itemIdIsHover !== index,
                                             },
                                             {
-                                                grayscale:
-                                                    hoverType === "bw" &&
-                                                    itemIdIsHover !== index,
+                                                grayscale: hoverType === 'bw' && itemIdIsHover !== index,
                                             }
                                         )}
                                     />
@@ -183,6 +173,22 @@ export function Gallery({ title, images, hoverType = "blur" }: IGallery) {
                     */}
                 </div>
             </Container>
+
+            <Modal title="Gallery">
+                <ul className="c-content-list">
+                    <li>
+                        <strong>Scroll-triggered animation</strong>: reveals cards one by one once the component is in
+                        viewport
+                    </li>
+                    <li>
+                        <strong>Hover effect</strong>: turns hovered image coloured, and leaves the other ones black and
+                        white
+                    </li>
+                    <li>
+                        <strong>Variation</strong>: when you hover a card, blurs the other ones
+                    </li>
+                </ul>
+            </Modal>
         </motion.section>
     );
 }

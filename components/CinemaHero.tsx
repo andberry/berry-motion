@@ -10,6 +10,7 @@ import { TBgTextVariants } from './BgText';
 import { TButtonVariant } from './Button';
 import { useState } from 'react';
 import { StaticImageData } from 'next/image';
+import { Modal } from './Modal';
 
 const motionImageVariants: { [key: string]: Variant } = {
     base: {
@@ -122,6 +123,15 @@ export const CinemaHero = ({
                     </div>
                 </Container>
             </div>
+
+            <Modal title="CinemaHero">
+                <ul className="c-content-list">
+                    <li>
+                        <strong>Scroll-triggered animation</strong>: animate background scale with high duration value
+                        and reveal title with delay
+                    </li>
+                </ul>
+            </Modal>
         </motion.section>
     );
 };

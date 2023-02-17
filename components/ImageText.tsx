@@ -4,6 +4,7 @@ import { Container } from './Container';
 import classNames from 'classnames';
 import { motion, MotionValue, useScroll, useTransform, Variant } from 'framer-motion';
 import { easings } from '@/utils/easings';
+import { Modal } from './Modal';
 
 const motionVariantsSection: { [key: string]: Variant } = {
     'hide': {},
@@ -95,7 +96,7 @@ export const ImageText = ({ imgsrc, title = undefined, text = undefined, imgposi
     const imgScroll = useImgScrollParallax(scrollYProgress, imgposition === 'left' ? 60 : -60);
     return (
         <motion.section
-            className="py-36 -mb-36"
+            className="py-36 -mb-36 relative"
             onViewportEnter={() => setIsInViewportAnimating(true)}
             onViewportLeave={() => setIsInViewportAnimating(false)}
             viewport={{ margin: '0px 0px -50% 0px' }}
@@ -163,6 +164,18 @@ export const ImageText = ({ imgsrc, title = undefined, text = undefined, imgposi
                     </div>
                 </div>
             </Container>
+
+            <Modal title="ImageText">
+                <ul className="c-content-list">
+                    <li>
+                        <strong>Scroll-triggered animation</strong>: reveals image and copy one by one once the
+                        component is in viewport
+                    </li>
+                    <li>
+                        <strong>Scroll-liked effect</strong>: horizontal parallax effect on image
+                    </li>
+                </ul>
+            </Modal>
         </motion.section>
     );
 };
