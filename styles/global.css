@@ -6,6 +6,14 @@
     a {
         @apply transition-all ease-linear duration-100;
     }
+
+    ul.c-content-list {
+        @apply list-disc ml-4;
+    }
+
+    ul.c-content-list li {
+        @apply py-2;
+    }
 }
 @layer components {
     .c-page-footer a {

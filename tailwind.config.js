@@ -18,8 +18,9 @@ module.exports = {
         colors: {
             white: '#FFFFFF',
             black: '#000000',
+            gray: '#EEEEEE',
             verb: '#0083a8',
-            verb2: '#006676',
+            verb2: '#006a89',
         },
         extend: {
             aspectRatio: {
@@ -27,6 +28,20 @@ module.exports = {
             },
             fontSize: {
                 hero1: 'clamp(2rem, 4vw, 75px)',
+            },
+            keyframes: {
+                overlayShow: {
+                    from: { opacity: 0 },
+                    to: { opacity: 0.7 },
+                },
+                contentShow: {
+                    from: { opacity: 0, transform: 'translate(-50%, -40%)' },
+                    to: { opacity: 1, transform: 'translate(-50%, -50%)' },
+                },
+            },
+            animation: {
+                overlayShow: 'overlayShow 300ms',
+                contentShow: 'contentShow 250ms cubic-bezier(0.33, 1, 0.68, 1)',
             },
         },
     },

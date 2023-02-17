@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { motion, Variant } from 'framer-motion';
 import { easings } from '@/utils/easings';
 import classNames from 'classnames';
+import { Modal } from './Modal';
 
 interface ICards {
     title: string;
@@ -50,7 +51,7 @@ export function Cards({ title, cards, type = 'type1' }: ICards) {
     const titleClass = type === 'type1' ? 'text-black' : 'text-verb font-bold';
     return (
         <motion.div
-            className="py-24"
+            className="py-24 relative"
             variants={sectionVariants}
             onViewportEnter={() => setIsInViewportAnimating(true)}
             onViewportLeave={() => setIsInViewportAnimating(false)}
@@ -71,6 +72,26 @@ export function Cards({ title, cards, type = 'type1' }: ICards) {
                     ))}
                 </div>
             </Container>
+
+            <Modal title="Cards">
+                <ul className="c-content-list">
+                    <li>
+                        <strong>Scroll-triggered animation</strong>: reveals cards one by one once the component is in
+                        viewport
+                    </li>
+                    <li>
+                        <strong>Hover effect</strong>: show an underline element that follow pointer (hard to implement
+                        without Framer Motion)
+                    </li>
+                    <li>
+                        <strong>Hover effect</strong>: scale and translate card image
+                    </li>
+                    <li>
+                        <strong>Variation</strong> with a black background on hover in place of an underline element,
+                        with a moving up card&apos;s title
+                    </li>
+                </ul>
+            </Modal>
         </motion.div>
     );
 }
