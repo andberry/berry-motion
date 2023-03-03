@@ -39,7 +39,7 @@ const motionTitleVariants: { [key: string]: Variant } = {
             type: 'tween',
             duration: 1.8,
             ease: 'linear',
-            delay: 2,
+            delay: 0.6,
         },
     },
 };
